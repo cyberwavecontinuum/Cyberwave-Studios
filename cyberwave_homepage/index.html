@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cyberwave Studios</title>
+<style>
+  :root{
+    --bg1:#050a12; --bg2:#0a1420; --panel:#0c1624;
+    --ink:#e8faff; --accent:#00eaff; --accent-dim:#6fefff; --warn:#ffd64d;
+  }
+  *{box-sizing:border-box} html,body{margin:0;height:100%}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+       background:radial-gradient(1200px 800px at 50% -20%,var(--bg2),var(--bg1));
+       color:var(--ink); display:flex; flex-direction:column; min-height:100vh}
+  header,footer{background:var(--panel); border-block:1px solid rgba(0,234,255,.18)}
+  header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+  header img{height:42px}
+  header nav a{color:var(--accent);text-decoration:none;margin-left:14px;font-weight:600}
+  main{flex:1; padding:24px 16px}
+  .triangle-wrap{max-width:920px;margin:0 auto; display:grid; place-items:center}
+  .triangle{position:relative; width:min(86vw,780px); aspect-ratio:1/1; border-radius:20px; padding:16px;
+    background:rgba(0,234,255,.04); border:1px solid rgba(0,234,255,.18);}
+  .threads{position:absolute; inset:6% 6%; background:url('threads.png') center/contain no-repeat;
+    filter:drop-shadow(0 0 18px rgba(0,234,255,.35)); animation: spin 38s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .center{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:18%; aspect-ratio:1; background:url('cw-logo.png') center/contain no-repeat;
+    filter:drop-shadow(0 0 14px rgba(0,234,255,.45));}
+  .node{position:absolute; width:26%; aspect-ratio:1; border-radius:50%; display:block;
+    box-shadow:0 0 0 3px rgba(0,234,255,.35) inset, 0 12px 34px -16px rgba(0,234,255,.55); transition:transform .12s ease}
+  .node:hover{transform:translateY(-2px)}
+  .node img{width:100%; height:100%; object-fit:contain; display:block}
+  .top   {left:50%; top:4%;  transform:translate(-50%,0)}
+  .left  {left:5%;  top:64%}
+  .right {right:5%; top:64%}
+  h1{margin:20px auto 10px; text-align:center; letter-spacing:.18em; font-size:1.25rem; color:var(--accent)}
+  .screen{max-width:980px; margin:20px auto 0; padding:18px 16px;
+    background:linear-gradient(180deg, rgba(6,16,28,.9), rgba(6,16,28,.7));
+    border:1px solid rgba(0,234,255,.2); border-radius:14px; box-shadow:0 20px 60px -30px rgba(0,234,255,.35);}
+  .crt{background:#04131c; border:1px solid rgba(0,234,255,.18); border-radius:10px; padding:18px;
+    line-height:1.6; min-height:140px; position:relative; text-shadow:0 0 6px rgba(111,239,255,.35); overflow:hidden;}
+  .crt:before{content:""; position:absolute; inset:0; background:repeating-linear-gradient(transparent 0 2px, rgba(0,234,255,.04) 2px 3px);
+    pointer-events:none; mix-blend-mode:screen;}
+  .quote{font-size:1.05rem}
+  .sig{opacity:.9; margin-top:10px; color:var(--accent)}
+  .dots{display:flex; gap:6px; justify-content:center; margin-top:10px}
+  .dot{width:8px; height:8px; border-radius:50%; background:rgba(111,239,255,.2)}
+  .dot.active{background:var(--accent)}
+  footer{padding:10px 0; text-align:center; font-size:.95rem}
+  .glitch{color:var(--warn)}
+  @media (max-width:640px){.node{width:30%}.top{top:6%}.left,.right{top:68%}}
+</style>
+
+<header>
+  <img src="cw-logo.png" alt="Cyberwave Studios">
+  <nav>
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="lab.html">Harmonic Resonance Lab</a>
+    <a href="services.html">Audio Services</a>
+    <a href="continuum.html">Continuum</a>
+  </nav>
+</header>
+
+<main>
+  <div class="triangle-wrap">
+    <div class="triangle">
+      <div class="threads" aria-hidden="true"></div>
+      <div class="center" aria-hidden="true" title="Cyberwave Logo"></div>
+      <a class="node top" href="lab.html" title="Harmonic Resonance Lab"><img src="crystal.png" alt="Lab"></a>
+      <a class="node left" href="continuum.html" title="Continuum"><img src="infinity.png" alt="Continuum"></a>
+      <a class="node right" href="services.html" title="Audio Services"><img src="beatfox.png" alt="Services"></a>
+    </div>
+  </div>
+
+  <h1>TESTIMONIAL FEED</h1>
+  <section class="screen">
+    <div class="crt" id="crt"><div class="quote" id="q"></div><div class="sig" id="s"></div></div>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Timeline 13A: <strong>ACTIVE</strong> · Resonance Anchor: <strong>STABLE</strong></p>
+  <p class="glitch">▓ SYNDICATE TRACE BLOCKED ▓</p>
+</footer>
+
+<script>
+const testimonials = [
+  {sig:"Shawn Christmas – Producer", text:"“Charlie is amazing! We have done many songs together and he is very quick, efficient, and professional. Highly recommend working with him!”"},
+  {sig:"Tim – Excessum", text:"“Charlie absolutely just delivers. Plain and simple. What you need? A pop song? DONE! He'll kill it. You want the darkest heavy metal to summon the dark lord himself? Apocalypse NOW! Charlie will get it done.”"},
+  {sig:"Doc St Andrie – Vocalist", text:"“Charlie is the man!!! Plain and simple. He has been an integral part of shaping the sound of our current album… If you're looking for a professional finished product and a knowledgeable, talented engineer, do yourself a favor, contact Charlie Hadley.”"},
+  {sig:"Chris Cardone – Vocalist, Call Me Crazy", text:"“I have been recording with Charlie for about 3–4 years now and he never disappoints!”"},
+  {sig:"Balance Universal – multi-media maverick", text:"“Charlie is super easy to work with because he will listen to you, ask questions, and do his very best to bring your musical idea to life… He spends each day figuring out how to empower artists to do what they love for a living.”"},
+  {sig:"David James Kersey – guitarist", text:"“Cyberwave is consistently detailed in all of the right places… Using the services he provides will be an investment to any musician’s journey, without a doubt.”"},
+  {sig:"Dalton Daniel – vocalist/guitarist/performer", text:"“I absolutely recommend Cyberwave Studios! Charlie has been my go-to guy for all my band and solo projects… and can write the catchiest/most memorable choruses you will ever hear.”"},
+  {sig:"Leon Craft – Midnight Fracture", text:"“Charlie and Cyberwave have been amazing for my band, Midnight Fracture. His work is top notch, super professional and I would put his mixes up against anything on the radio.”"},
+];
+const q = document.getElementById('q'), s = document.getElementById('s'), dotsWrap = document.getElementById('dots');
+const dots = testimonials.map((_,i)=>{const d=document.createElement('div'); d.className='dot'; dotsWrap.appendChild(d); return d;});
+let i=0; function render(idx){q.textContent=testimonials[idx].text; s.textContent=testimonials[idx].sig; dots.forEach((d,j)=>d.classList.toggle('active', j===idx));}
+render(i); setInterval(()=>{i=(i+1)%testimonials.length; render(i);},6000);
+</script>
+</html>
